@@ -21,7 +21,7 @@ export const RECETAS = [
         "foto": "https://www.miscosillasdecocina.com/wp-content/uploads/2014/02/bacalao-pilpil-e1491084486535.jpg",
         "likes": "32",
         "isGlutenFree": true,
-        "cocinero": "Karlos Argiñano",
+        "cocinero": "Miren Jule García",
         "ingredientes": [
             "bacalao",
             "aceite",
@@ -84,7 +84,7 @@ export const RECETAS = [
         "foto": "https://unareceta.com/wp-content/uploads/2016/08/receta-fajitas-de-carne-picada-640x417.jpg",
         "likes": "58",
         "isGlutenFree": false,
-        "cocinero": "Pablo Escobar",
+        "cocinero": "Fernando Caballero",
         "ingredientes": [
             "pechuga",
             "cebolla",

@@ -9,6 +9,8 @@ import { RECETAS } from '../../modelo/recetas';
 export class RecetarioComponent implements OnInit {
 
   recetas: Array<any>;
+  rSeleccionada: any;
+  busqueda: string;
 
   constructor() {
     console.log('RecetarioComponent constructor');
@@ -23,7 +25,18 @@ export class RecetarioComponent implements OnInit {
       return 0;
     });
 
+    this.rSeleccionada = '';
+
+    this.busqueda = '';
+
   }// constructor
+
+  seleccionarReceta = function (receta) {
+    console.log("seleccionarReceta( id: " + receta.id + ", nombre: " + receta.nombre + ")");
+
+    this.rSeleccionada = receta;
+
+  }// seleccionarReceta
 
   ngOnInit() {
     console.log('RecetarioComponent ngOnInit');

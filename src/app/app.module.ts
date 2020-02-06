@@ -6,11 +6,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RecetarioComponent } from './paginas/recetario/recetario.component';
+import { RecetasPipe } from './pipes/recetas.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RecetarioComponent
+    RecetarioComponent,
+    RecetasPipe
   ],
   imports: [
     BrowserModule,

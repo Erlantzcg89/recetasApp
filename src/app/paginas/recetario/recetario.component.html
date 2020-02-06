@@ -2,25 +2,74 @@
 
   <div class="recetario-header row">
 
-    <div class="col-2">
-      <h2 class="text-center">Nueva</h2>
+    <div class="col-3">
+      <a href="#">
+        <h6 class="text-center"><i class="fas fa-plus"></i> Nueva Receta</h6>
+      </a>
     </div>
 
-    <div class="col-10">
-      <h2 class="text-center">Filtro</h2>
+    <div class="col-9 form-inline">
+
+      <i class="fas fa-search" aria-hidden="true"></i>
+      <input class="form-control form-control-sm ml-3 w-75" type="text"
+        placeholder="Buscar recetas por nombre, cocinero o ingredientes" aria-label="Search" [(ngModel)]="busqueda">
+
     </div>
 
   </div>
 
   <div class="recetario-body row">
 
-    <div class="col-2">
+    <div class="col-3">
       <h2 class="text-center">Recetario</h2>
+      <ul class="login-lista list-group">
+        <li *ngFor="let r of recetas | recetasFiltro : busqueda" (click)="seleccionarReceta(r)"
+          class="list-group-item {{ (r.id==rSeleccionada.id) ? 'active' : '' }}">
+          {{r.nombre}} <span
+            class="{{(r.isGlutenFree)?'':'badge badge-danger float-right'}}">{{(r.isGlutenFree)?'':'gluten'}}</span>
+          <br><span class="text-muted">{{r.cocinero}}</span>
+        </li>
+      </ul>
     </div>
 
-    <div class="col-10">
-      <h2 class="text-center">Detalle</h2>
+    <!-- detalle -->
+    <div *ngIf="rSeleccionada !== ''; else elseBlock" class="recetario-detalle col-9">
+      <div class="recetario-detalle-titulo">
+        <h2 class="text-center">{{rSeleccionada.nombre}}</h2>
+      </div>
+      <div class="row">
+        <div class="recetario-detalle-imagen col-6">
+          <span
+            class="{{(rSeleccionada.isGlutenFree)?'':'badge badge-danger '}}">{{(rSeleccionada.isGlutenFree)?'':'con gluten'}}</span>
+          <img src="{{rSeleccionada.foto}}" alt="{{rSeleccionada.nombre}}">
+        </div>
+        <div class="col-6">
+          <ul class="login-lista list-group">
+            <li *ngFor="let i of rSeleccionada.ingredientes" class="list-group-item">
+              {{i}}
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="recetario-detalle-like row">
+        <div class="col-1"><i class="far fa-heart"></i></div>
+        <div class="col-11">
+          <span><i>by {{rSeleccionada.cocinero}}</i></span>
+        </div>
+
+      </div>
+      <div class="recetario-detalle-descripcion">{{rSeleccionada.descripcion}}</div>
     </div>
+
+    <ng-template #elseBlock>
+
+      <div class="recetario-detalle-else col-9">
+        <p>Bienvenido a la app de recetas!!!<br>
+          Selecciona una receta de la lista abrir el detalle</p>
+      </div>
+
+    </ng-template>
 
   </div>
+
 </div>

@@ -1,7 +1,53 @@
 .recetario-header {
   padding: 20px;
+
 }
 
 .recetario-body {
   padding: 20px;
+  border-top: 1px solid peru;
+
+}
+
+.recetario-detalle {
+  padding: 0;
+
+}
+
+.recetario-detalle-imagen {
+  img {
+    max-width: 300px;
+  }
+
+  span {
+    position: absolute;
+    top: 5px;
+    right: 20px;
+  }
+}
+
+.recetario-detalle-like {
+  padding: 5px 20px 0;
+
+  i.far {
+    color: red;
+  }
+}
+
+.recetario-detalle-descripcion {
+  padding: 5px 20px;
+}
+
+.recetario-detalle-else {
+
+  padding: 20px;
+
+  p {
+    font-size: 24px;
+  }
+}
+
+.recetario-detalle-titulo {
+  padding: 2px 0;
+
 }

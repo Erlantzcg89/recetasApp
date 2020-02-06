@@ -15,10 +15,7 @@ export class RecetasPipe implements PipeTransform {
     console.debug(datos);
     console.debug(busqueda);
 
-    let resultado;
-    let nombre;
-    let ingrediente;
-    let cocinero;
+    let resultado: Array<any> = [];
 
     busqueda = busqueda.trim();
 
@@ -26,10 +23,14 @@ export class RecetasPipe implements PipeTransform {
 
       busqueda = busqueda.toUpperCase();
 
-      resultado = datos.filter((el) => {
-        console.debug(el);
-        nombre = el.nombre.toUpperCase();
-        return nombre.includes(busqueda);
+      datos.forEach(e => {
+
+        if (e.nombre.toUpperCase().includes(busqueda) || e.cocinero.toUpperCase().includes(busqueda)) {
+
+          resultado.push(e)
+
+        }
+
       });
 
     } else {

@@ -20,7 +20,7 @@
 
   <div class="recetario-body row">
 
-    <div class="col-3">
+    <div class="col-md-3">
       <h2 class="text-center">Recetario</h2>
       <ul class="login-lista list-group">
         <li *ngFor="let r of recetas | recetasFiltro : busqueda" (click)="seleccionarReceta(r)"
@@ -33,17 +33,17 @@
     </div>
 
     <!-- detalle -->
-    <div *ngIf="rSeleccionada !== ''; else elseBlock" class="recetario-detalle col-9">
+    <div *ngIf="rSeleccionada !== ''; else elseBlock" class="recetario-detalle col-md-9">
       <div class="recetario-detalle-titulo">
         <h2 class="text-center">{{rSeleccionada.nombre}}</h2>
       </div>
       <div class="row">
-        <div class="recetario-detalle-imagen col-6">
+        <div class="recetario-detalle-imagen col-md-6">
           <span
             class="{{(rSeleccionada.isGlutenFree)?'':'badge badge-danger '}}">{{(rSeleccionada.isGlutenFree)?'':'con gluten'}}</span>
           <img src="{{rSeleccionada.foto}}" alt="{{rSeleccionada.nombre}}">
         </div>
-        <div class="col-6">
+        <div class="col-md-6">
           <ul class="login-lista list-group">
             <li *ngFor="let i of rSeleccionada.ingredientes" class="list-group-item">
               {{i}}
@@ -63,7 +63,7 @@
 
     <ng-template #elseBlock>
 
-      <div class="recetario-detalle-else col-9">
+      <div class="recetario-detalle-else col-md-9">
         <p>Bienvenido a la app de recetas!!!<br>
           Selecciona una receta de la lista abrir el detalle</p>
       </div>

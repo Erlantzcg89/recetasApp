@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { element } from 'protractor';
 
 @Pipe({
   name: 'recetasFiltro'
@@ -31,7 +30,7 @@ export class RecetasPipe implements PipeTransform {
 
       resultado = resultado.filter((el) => {
         const ingredientes = el.ingredientes.reduce((c, p) => c + p, '');
-        const encontrar = (el.nombre + el.cocinero + ingredientes).toLowerCase();
+        const encontrar = (el.nombre + '$' + el.cocinero + '$' + ingredientes).toLowerCase(); // simbolos para que no se junten palabras
         return encontrar.includes(busqueda);
       });
 

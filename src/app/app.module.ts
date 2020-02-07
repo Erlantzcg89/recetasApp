@@ -8,13 +8,15 @@ import { AppComponent } from './app.component';
 import { RecetarioComponent } from './paginas/recetario/recetario.component';
 import { RecetasPipe } from './pipes/recetas.pipe';
 import { Error404Component } from './paginas/error404/error404.component';
+import { RecetaDetalleComponent } from './paginas/receta-detalle/receta-detalle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RecetarioComponent,
     RecetasPipe,
-    Error404Component
+    Error404Component,
+    RecetaDetalleComponent
   ],
   imports: [
     BrowserModule,

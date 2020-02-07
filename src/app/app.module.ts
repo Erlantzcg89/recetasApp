@@ -7,12 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RecetarioComponent } from './paginas/recetario/recetario.component';
 import { RecetasPipe } from './pipes/recetas.pipe';
+import { Error404Component } from './paginas/error404/error404.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     RecetarioComponent,
-    RecetasPipe
+    RecetasPipe,
+    Error404Component
   ],
   imports: [
     BrowserModule,

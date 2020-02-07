@@ -14,6 +14,10 @@
       <input class="form-control form-control-sm ml-3 w-75" type="text"
         placeholder="Buscar recetas por nombre, cocinero o ingredientes" aria-label="Search" [(ngModel)]="busqueda">
 
+      <div class="gluten-check d-inline">
+        <input type="checkbox" class="form-check-input d-inline" [(ngModel)]="conGluten"> Sin Gluten
+      </div>
+
     </div>
 
   </div>
@@ -23,7 +27,7 @@
     <div class="col-md-3">
       <h2 class="text-center">Recetario</h2>
       <ul class="login-lista list-group">
-        <li *ngFor="let r of recetas | recetasFiltro : busqueda" (click)="seleccionarReceta(r)"
+        <li *ngFor="let r of recetas | recetasFiltro : busqueda : conGluten" (click)="seleccionarReceta(r)"
           class="list-group-item {{ (r.id==rSeleccionada.id) ? 'active' : '' }}">
           {{r.nombre}} <span
             class="{{(r.isGlutenFree)?'':'badge badge-danger float-right'}}">{{(r.isGlutenFree)?'':'gluten'}}</span>
@@ -39,9 +43,11 @@
       </div>
       <div class="row">
         <div class="recetario-detalle-imagen col-md-6">
-          <span
-            class="{{(rSeleccionada.isGlutenFree)?'':'badge badge-danger '}}">{{(rSeleccionada.isGlutenFree)?'':'con gluten'}}</span>
-          <img src="{{rSeleccionada.foto}}" alt="{{rSeleccionada.nombre}}">
+          <div>
+            <span
+              class="{{(rSeleccionada.isGlutenFree)?'':'badge badge-danger '}}">{{(rSeleccionada.isGlutenFree)?'':'con gluten'}}</span>
+            <img src="{{rSeleccionada.foto}}" alt="{{rSeleccionada.nombre}}">
+          </div>
         </div>
         <div class="col-md-6">
           <ul class="login-lista list-group">

@@ -1,4 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { element } from 'protractor';
 
 @Pipe({
   name: 'recetasFiltro'
@@ -6,39 +7,37 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class RecetasPipe implements PipeTransform {
 
   /**
-    * filtro para filtrar por nombre
-    * @param datos 
-    * @param busqueda 
+    * filtro para filtrar por nombre, cocinero, ingredientes, con o sin gluten
+    * @param recetas: array de recetas json
+    * @param checkGluten: boleano cheackear si tiene gluten
+    * @param busqueda: cadena de texto a filtrar
     */
-  transform(datos: any, busqueda: string): any {
+  transform(recetas: any, checkGluten: boolean, busqueda: string): any {
 
-    console.debug(datos);
-    console.debug(busqueda);
+    let resultado = recetas;
 
-    let resultado: Array<any> = [];
+    console.debug('checkGluten ', checkGluten);
+    console.debug('busqueda ', busqueda);
 
-    busqueda = busqueda.trim();
+    // filtrar recetas sin gluten
+    if (checkGluten) {
+      resultado = resultado.filter((el) => el.isGlutenFree);
+    }
 
+    // filtrar por nombre receta o nombre cocinero o ingredientes
     if (busqueda && '' !== busqueda) {
 
-      busqueda = busqueda.toUpperCase();
+      busqueda = busqueda.toLowerCase();
 
-      datos.forEach(e => {
-
-        if (e.nombre.toUpperCase().includes(busqueda) || e.cocinero.toUpperCase().includes(busqueda)) {
-
-          resultado.push(e)
-
-        }
-
+      resultado = resultado.filter((el) => {
+        const ingredientes = el.ingredientes.reduce((c, p) => c + p, '');
+        const encontrar = (el.nombre + el.cocinero + ingredientes).toLowerCase();
+        return encontrar.includes(busqueda);
       });
 
-    } else {
-      resultado = datos;
     }
 
     return resultado;
-
   }// transform
 
 }

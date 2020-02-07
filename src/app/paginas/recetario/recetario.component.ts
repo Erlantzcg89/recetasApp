@@ -11,6 +11,7 @@ export class RecetarioComponent implements OnInit {
   recetas: Array<any>;
   rSeleccionada: any;
   busqueda: string;
+  conGluten: boolean;
 
   constructor() {
     console.log('RecetarioComponent constructor');
@@ -26,8 +27,8 @@ export class RecetarioComponent implements OnInit {
     });
 
     this.rSeleccionada = '';
-
     this.busqueda = '';
+    this.conGluten = false;
 
   }// constructor
 

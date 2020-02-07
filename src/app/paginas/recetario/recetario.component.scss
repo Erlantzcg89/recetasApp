@@ -1,6 +1,12 @@
 .recetario-header {
   padding: 20px;
 
+  .gluten-check {
+    min-width: 80px;
+    font-size: 14px;
+    margin: 10px 0 0 15px;
+  }
+
 }
 
 .recetario-body {
@@ -15,6 +21,7 @@
 }
 
 .recetario-detalle-imagen {
+
   img {
     max-width: 300px;
   }
@@ -22,7 +29,7 @@
   span {
     position: absolute;
     top: 5px;
-    right: 20px;
+    left: 20px;
   }
 }
 

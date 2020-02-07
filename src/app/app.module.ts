@@ -9,6 +9,7 @@ import { RecetarioComponent } from './paginas/recetario/recetario.component';
 import { RecetasPipe } from './pipes/recetas.pipe';
 import { Error404Component } from './paginas/error404/error404.component';
 import { RecetaDetalleComponent } from './paginas/receta-detalle/receta-detalle.component';
+import { RecetaNuevaComponent } from './paginas/receta-nueva/receta-nueva.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RecetaDetalleComponent } from './paginas/receta-detalle/receta-detalle.
     RecetarioComponent,
     RecetasPipe,
     Error404Component,
-    RecetaDetalleComponent
+    RecetaDetalleComponent,
+    RecetaNuevaComponent
   ],
   imports: [
     BrowserModule,

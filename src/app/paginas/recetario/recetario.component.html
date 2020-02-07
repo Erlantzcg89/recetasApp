@@ -3,7 +3,7 @@
   <div class="recetario-header row">
 
     <div class="col-3">
-      <a href="#">
+      <a routerLink="/nueva">
         <h6 class="text-center"><i class="fas fa-plus"></i> Nueva Receta</h6>
       </a>
     </div>
@@ -41,7 +41,7 @@
       <div class="recetario-detalle-titulo">
         <h2 class="text-center">{{rSeleccionada.nombre}}</h2>
       </div>
-      <a routerLink="/receta-detalle/{{rSeleccionada.id}}">Ver la receta en pantalla completa</a>
+      <a routerLink="/receta/{{rSeleccionada.id}}">Ver la receta en pantalla completa</a>
       <div class="row">
         <div class="recetario-detalle-imagen col-md-6">
           <div>
